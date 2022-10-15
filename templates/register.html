@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block content %}
+<style>
+  input{
+    float: right;
+    margin: 0.5px;
+  }
+</style>
+
+<h2 xmlns="http://www.w3.org/1999/html">WELCOME</h2>
+<h3>REGISTER</h3>
+<form method="POST">
+ {% csrf_token %}
+  <div class="container">
+    
+    <label for="Email"><b>Email:</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    </br>
+
+    <label for="uname"><b>Username:</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+    </br>
+
+    <label for="psw"><b>Password:</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    </br>
+      <label for="PSW"><b>Confirm Password:</b></label>
+    <input type="text" placeholder="Re-Enter Password" name="password1" required>
+      </br><br>
+    <button style="margin-left: 10px;float:right" type="submit">Register</button>
+
+  </div>
+
+
+</form>
+{% endblock %}

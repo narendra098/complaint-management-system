@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<style>
+    label {
+    width:180px;
+    clear:left;
+    text-align:right;
+    padding-right:10px;
+}
+
+input, label {
+    float:left;
+}
+</style>
+
+<h2 style="color:black" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">New Complaint</h2>
+
+<div class="container">
+<form action="{% url 'post' %}" method="POST">
+    {% csrf_token %}
+
+    <label for="complaint_name">Complaint Name:  </label>
+     <input type="text" id="complaint_name" name="complaint_name">
+    </br>
+
+</br>
+   <label for="about_complaint">about your Complaint: </label>
+    <input type="text" id="about_complaint" name="about_complaint">
+
+<br></br>
+
+    <label for="location">Location:</label>
+    <select id="location" name="location">
+    <option value="Corporate Headoffice">Corporate Headoffice</option>
+    <option value="operations Department">Operations Department</option>
+    <option value="work station">work station</option>
+    <option value="Marketing Division">Marketing Division</option>
+    </select>
+   <br></br>
+     
+
+    <label for="dateandtime">Date and Time:  </label>
+    <input type="datetime-local" id="dateandtime" name="dateandtime">
+    
+<br></br>
+    <label for="exact_location">exact location: </label>
+   <input type="text" id="exact_location" name="exact_location">
+    
+<br></br>
+
+    <label for="action_taken">any action taken: </label>
+    <input type="text" id="action_taken" name="action_taken"> 
+    <br></br>
+
+    <label for="reported_by">Reported By: </label>
+    <input type="text" id="reported_by" name="reported_by" value="{% if user.is_authenticated %}{{user.username}}{% endif %}" readonly>
+    <br><br>
+    
+    
+    
+    
+
+    <input type="submit">
+</form>
+
+   
+
+
+
+
+{% endblock %}

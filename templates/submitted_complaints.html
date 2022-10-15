@@ -1,0 +1,37 @@
+
+{% load static %}
+
+<link href="{% static 'reports table/reports.css' %}" rel="stylesheet">
+
+<h1>YOUR SUBMITTED COMPLAINTS</h1>
+
+  <main>
+    <table>
+
+      <thead>
+        <tr>
+          <th>Complaint Name</th>
+          <th>Reported Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      
+      <tbody>
+
+      {% for cmplnt in complaints %}
+        <tr>
+          <td data-title='Complaint Name'>{{cmplnt.complaint_name}}</td>
+          <td data-title='Reported Date'>{{cmplnt.dateandtime}}</td>
+          <td data-title='status'>{{cmplnt.status}}</td>
+        </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+
+      </div>
+    </div>
+  </main>
+  
+
